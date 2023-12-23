@@ -78,6 +78,10 @@ app.get("/allCurrentOrders",async (req,res)=>{
     res.json(orders);
 
 });
+app.get("/getDeliveryWaiting",async (req,res)=>{
+   const orders = await OrdersModel.find({ orderStatus: "ready",productType:"Glovo" });   
+   res.json(orders);
+});
 
 
 app.post('/endByOrder',async (req,res)=>{
